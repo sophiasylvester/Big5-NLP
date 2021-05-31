@@ -1,0 +1,82 @@
+Structure of the result files:
+
+
+The result files are ordered into folders according to their appearance in the thesis. 
+
+The files are named according to the following scheme:
+1. traits to predict
+2. name of the dataset
+3. model (classifier or predictor)
+4. classes (binary, multi or continuous scores =linear)
+5. algorithm for feature selection
+6. PCA (true or false)
+7. number of features
+8. name of file (if applicable)
+
+For the regression the names were shortened to:
+1. regressor
+2. feature selection algorithm
+3. PCA (true or false)
+4. number of features
+
+All subfolders named plot_<name> contain plots separately for each trait. The plots are ROc curves and confusion matrices for the classifiers and regression plots for the regressors.
+
+
+
+In the csv-files containing classification results the following content can be found per trait: 
+- average accuracy
+- average macro F1 score
+- average auc score
+- accuracy per fold
+- macro f1 score per fold
+- auc score per fold
+- parameters determined via grid search (per fold)
+- the names of the features selected and used for the prediction (per fold; only if PCA was not used)
+
+
+In the csv-files containing regression results the following content can be found per trait: 
+- average r squared score
+- average MSE 
+- the names of the features selected and used for the prediction (per fold; only if PCA was not used)
+
+
+
+
+
+study1
+
+The folder study1 contains the results of:
+- classifiers: Logistic regression (LR), multi-layer perceptron (MLP), support vector machine (svm) and majority class classifier (MCC) as baseline
+- feature selection: ANOVA
+- number of features: 30
+
+Its subfolder test_featureimportance contains the experiments on feature relevance, i.e., the pipeline with 30 features, ANOVA and MLP but smaller input feature sets, namely:
+- word n-grams
+- character n-grams
+- wordlists
+- post features
+- post features but without the names of the subreddits.
+
+
+
+
+study 2:
+The folder study2 contains the results of the following experiments:
+1. datasubset: predicting big five and mbti scores from da subset of authors with both labels
+2. nfeatures: the number of features (1, 5, 10, 20 or 30 and 30 with PCA)
+3. clf: new classifiers, namely naive bayes (NB), decision tree (DT), random forest classifier (RFC), and gradient boost classifier (GBC)
+4. featureselection: new algorithms, namely mutual information and forward sequential feature selection
+5. augmenteddata
+
+
+
+
+study 3:
+The folder study3 contains the results of the following regressors:
+- linear regression (LIR), gradient boost regressor (gbr), random forest regressor (rfr), and multi-layer perceptron regression (mlpr)
+
+
+
+
+appendix:
+The folder appendix contains the results of the multiclass classification. We realized five classes and tested them with MLP, ANOVA and 10 features.
